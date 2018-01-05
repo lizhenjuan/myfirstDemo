@@ -1,5 +1,9 @@
 package TestStream;
 
+/**
+ * 分布式事务
+ */
+
 public class Transaction {
 
 	 private  final  Trader trader;
