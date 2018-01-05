@@ -9,6 +9,7 @@ public class justTestClass {
          private  String userName;
          private  Integer age;
          private  String commont;
+         //测试
 
 
 
