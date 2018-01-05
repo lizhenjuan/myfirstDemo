@@ -5,5 +5,14 @@ package TestStream;
  */
 public class justTestClass {
 
+         private  Integer userId;
+         private  String userName;
+         private  Integer age;
+         private  String commont;
+
+
+
+
+
 
 }
