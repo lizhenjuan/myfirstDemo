@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.coutmapper.FailRecordMapper">
+    <!--定义resultMap-->
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.fialRecordEntity">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+    </resultMap>
+
+    <!--查询消费失败的记录-->
+    <select id="selectFailRecord" resultMap="BaseResultMap">
+           SELECT  t.id,t.content,t.`status` FROM t_fialrecord t WHERE t.`status`=#{status}
+     </select>
+
+</mapper>
+

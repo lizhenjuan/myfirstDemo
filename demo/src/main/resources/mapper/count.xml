@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.coutmapper.CountMapper">
+    <!--定义resultMap-->
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.CountClass">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="count" jdbcType="VARCHAR" property="count"/>
+        <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
+    </resultMap>
+
+      <!--更新用户B的消费数量-->
+    <update id="updateCount">
+         UPDATE t_count  as t SET count= count -#{count} WHERE  t.userId=#{userId}
+    </update>
+         <!--插入执行失败记录-->
+    <insert id="insertFailureRecord">
+        INSERT INTO t_fialrecord(content) VALUES(#{content})
+    </insert>
+
+
+</mapper>
+

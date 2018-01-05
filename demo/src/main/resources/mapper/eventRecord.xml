@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.usermapper.EventPublishMapper">
+    <!--定义resultMap-->
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.EventPublish">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="status" jdbcType="VARCHAR" property="sendStatus"/>
+        <result column="payload" jdbcType="VARCHAR" property="payload"/>
+        <result column="eventType" jdbcType="INTEGER" property="enentType"/>
+        <result column="consumeStatus" jdbcType="INTEGER" property="consumeStatus"></result>
+    </resultMap>
+
+    <!--记录ID可以设置为自增长的,并且返回自增ID值-->
+    <insert id="insertUserCountRecord">
+     INSERT INTO t_eventpublish(sendStatus,payload,eventType,consumeStatus)
+     VALUES(1,#{conent},#{eventType},1)
+</insert>
+
+    <!--查询发送状态是未消费的事件-->
+    <select id="queryEventPublishu">
+SELECT t.id,t.`status`,t.payload,t.eventType FROM `t_eventPublish` t
+WHERE t.eventType=#{enventType} AND t.`sendStatus`=1
+    </select>
+
+      <!--查询未被消息的消息-->
+    <select id="updateEventPublish">
+
+    </select>
+      <!--根据记录ID查询其消费状态-->
+   <select id="selectConsumeStateByRecordId" resultMap="BaseResultMap">
+       SELECT  t.consumeStatus FROM t_eventpublish  t WHERE   t.id=#{recordId}
+   </select>
+
+    <!--查询未被消费的记录-->
+    <select id="publishList" resultMap="BaseResultMap">
+        SELECT t.id ,t.`sendStatus`,t.eventType,t.payload  FROM t_eventpublish t WHERE t.`sendStatus`=#{state}
+    </select>
+
+
+</mapper>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.usermapper.UserMapper">
+    <!--定义resultMap-->
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.UserEntity">
+        <id column="userId" jdbcType="VARCHAR" property="userId"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="count" jdbcType="INTEGER" property="count"/>
+    </resultMap>
+
+   <!-- 根据用户ID查询用户信息-->
+    <select id="queryUserInfoById" resultMap="BaseResultMap">
+       SELECT t.userId,t.userName,t.age,t.count FROM `t_user`  as t  WHERE  t.userId=#{userId}
+    </select>
+
+     <!-- 更新用户数量，执行-10操作-->
+    <update id="updateUserCount">
+      UPDATE t_user SET count= count -#{count} WHERE userId=#{userId}
+    </update>
+</mapper>
+
