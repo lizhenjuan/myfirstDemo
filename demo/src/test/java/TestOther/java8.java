@@ -70,5 +70,11 @@ public class java8 {
 
 	   }
 
+	  static boolean a ;
+	   public static void main(String arg[]){
+		  System.out.println(!a);
+		  System.out.println(System.currentTimeMillis());
+	   }
+
 
 }
