@@ -84,14 +84,7 @@ public class Test {
 				new Transaction(alan,2013,900),
 				new Transaction(brian,2017,800)
 		);
-      //高效的执行效果，得到的Like数据
-          //新的日期和apid的测试
+      //高效的执行效果，得到的Like数据。服务器测试//新的日期和apid的测试
 		transactions.stream().forEach(p->System.out.println(p.getValue()));
-
-
-
-
-
 	}
-
 }
